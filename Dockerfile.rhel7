@@ -1,0 +1,12 @@
+FROM registry.ci.openshift.org/ocp/builder:rhel-8-golang-1.19-openshift-4.13 AS builder
+WORKDIR /workdir
+COPY . .
+RUN make build
+
+FROM registry.ci.openshift.org/ocp/builder:rhel-8-base-openshift-4.13
+
+COPY --from=builder workdir/set-sriov-defaults-to-pod /usr/bin/
+
+LABEL io.k8s.display-name="Sriov Mutate" \
+      io.k8s.description="Mutating admission webhook pods that make them sriov by default"
+

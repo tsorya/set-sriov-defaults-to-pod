@@ -1,0 +1,26 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: setsriovdefaultstopods.admission.setsriovdefaultpodannotation.openshift.io
+  labels:
+    setsriovdefaultstopod: "true"
+webhooks:
+  - name: setsriovdefaultstopods.admission.setsriovdefaultstopod.openshift.io
+    clientConfig:
+      url: https://localhost:9448/apis/admission.setsriovdefaultpodannotation.openshift.io/v1/setsriovdefaultpodannotations
+      caBundle: SERVICE_SERVING_CERT_CA
+    rules:
+      - operations:
+          - CREATE
+        apiGroups:
+          - ""
+        apiVersions:
+          - "v1"
+        resources:
+          - "pods"
+        scope: "Namespaced"
+    failurePolicy: Fail
+    timeoutSeconds: 5
+    sideEffects: None
+    reinvocationPolicy: IfNeeded
+    admissionReviewVersions: ["v1", "v1beta1"]

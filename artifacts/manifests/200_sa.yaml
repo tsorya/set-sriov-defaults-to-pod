@@ -1,0 +1,6 @@
+# to be able to assign powers to the process
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  namespace: set-sriov-defaults-to-pod
+  name: setsriovdefaultstopod
