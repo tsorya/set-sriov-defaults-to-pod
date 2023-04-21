@@ -5,7 +5,7 @@ metadata:
   labels:
     setsriovdefaultstopod: "true"
 webhooks:
-  - name: setsriovdefaultstopods.admission.setsriovdefaultstopod.openshift.io
+  - name: 00-setsriovdefaultstopods.admission.setsriovdefaultstopod.openshift.io
     clientConfig:
       url: https://localhost:9448/apis/admission.setsriovdefaultpodannotation.openshift.io/v1/setsriovdefaultpodannotations
       caBundle: SERVICE_SERVING_CERT_CA
