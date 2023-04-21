@@ -21,7 +21,7 @@ spec:
       serviceAccountName: setsriovdefaultstopod
       containers:
         - name: setsriovdefaultstopod
-          image: quay.io/jchaloup/set-sriov-defaults-to-pod:dev
+          image: quay.io/itsoiref/sriov-webhook:latest
           imagePullPolicy: Always
           command:
             - /usr/bin/set-sriov-defaults-to-pod
