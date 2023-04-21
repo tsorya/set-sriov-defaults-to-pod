@@ -18,7 +18,7 @@ import (
 const (
 	group      = "admission.setsriovdefaultpodannotation.openshift.io"
 	resource   = "setsriovdefaultpodannotations"
-	singular   = "setsriovdefaultpodannotation"
+	singularName   = "setsriovdefaultpodannotation"
 	version    = "v1"
 	defaultKey = "v1.multus-cni.io/default-network"
 )
@@ -49,7 +49,7 @@ func (a *PodSRIOVMutatingAdmissionHook) MutatingResource() (plural schema.GroupV
 			Version:  version,
 			Resource: resource,
 		},
-		singular
+		singularName
 }
 
 // Initialize implements the AdmissionHook API. (see https://github.com/openshift/generic-admission-server)

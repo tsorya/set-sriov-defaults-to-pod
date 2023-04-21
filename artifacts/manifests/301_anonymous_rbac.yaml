@@ -6,7 +6,7 @@ rules:
   - apiGroups:
       - "admission.setsriovdefaultpodannotation.openshift.io"
     resources:
-      - "setsriovdefaultstopods"
+      - "setsriovdefaultpodannotations"
     verbs:
       - create
       - get
